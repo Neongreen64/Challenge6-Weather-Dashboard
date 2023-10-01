@@ -1,0 +1,33 @@
+.weatherapp{
+    display: flex;
+    flex-direction: row;
+}
+
+.five-day{
+    display: flex;
+    flex-direction: row;
+}
+
+.search-container{
+    display:flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.weather-info{
+    padding-left: 2%;
+
+}
+
+.current{
+    border: 1px solid;
+}
+
+header {
+    background-color: slateblue;
+    color:white;
+}
+
+input, button {
+    width: 100%;
+}
