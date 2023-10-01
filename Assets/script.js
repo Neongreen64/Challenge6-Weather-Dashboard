@@ -9,23 +9,29 @@ var wind = document.getElementById("wind");
 var humidity = document.getElementById("humidity");
 var five =  document.querySelector(".five-day");
 
-
+//getWeather() function
 function getWeather(city){
-    const geocodeApiUrl= "http://api.openweathermap.org/geo/1.0/direct?q=${city name}&appid=${apiKey}";
+    //GeocodeApiUrl and declared variables lat and lon.
+    console.log(city);
+    const geocodeApiUrl= "https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=cf75761a46448e894386a1eb7b62bf42";
     var lat, lon;
-    
+    var weatherApiUrl;
+    //Fetch the geocodeApi and set the variables lon and lat.
     fetch(geocodeApiUrl)
         .then((response) => response.json())
         .then((data) => {
-            lon = data.lon;
-            lat = data.lat;
+            lon = data[0].lon;
+            console.log(lon);
+            lat = data[0].lat;
+            weatherApiUrl= "https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=cf75761a46448e894386a1eb7b62bf42&units=imperial";
         })
         .catch((error)=>{
             console.error("error fetching geocoding info :(");
         })
 
-    const weatherApiUrl= "https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid={apiKey}&units='imperial'";
+    
 
+    //Fetch the weatherApi and set the state name, temp, wind speed, and humidity.
     fetch(weatherApiUrl)
         .then((response) => response.json())
         .then((data) => {
@@ -39,8 +45,9 @@ function getWeather(city){
         })
 
 
-    const fiveDayUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid={apiKey}&units='imperial'";
+    const fiveDayUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=cf75761a46448e894386a1eb7b62bf42&units=imperial";
     
+    //Fetch the five day forecast api
     fetch(fiveDayUrl)
         .then((response)=> response.json())
         .then((data)=> {
@@ -90,4 +97,4 @@ citybtn.forEach((button)=> {
 })
 
 
-getWeather("Ohio");
+getWeather("ohio");
