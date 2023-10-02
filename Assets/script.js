@@ -81,4 +81,4 @@ citybtn.forEach((button) => {
     });
 });
 
-getWeather("ohio");
+getWeather("Indiana");
