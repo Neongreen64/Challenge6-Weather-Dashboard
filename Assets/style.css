@@ -8,6 +8,13 @@
     flex-direction: row;
 }
 
+.five-day > div{
+    border: 1px solid;
+    background-color: slateblue;
+    color:white;
+    
+}
+
 .search-container{
     display:flex;
     flex-direction: column;

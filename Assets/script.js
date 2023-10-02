@@ -45,6 +45,8 @@ function getWeather(city) {
                     for (var x = 0; x < 5; x++) {
                         var date = new Date(data.list[x].dt * 1000);
                         var temperature = data.list[x].main.temp + "°F";
+                        var windSpeed = data.list[x].wind.speed + "mph";
+                        var humidity = data.list[x].main.humidity + "%";
                         var emoji = data.list[x].weather[0].icon;
                         var emojiUrl = `http://openweathermap.org/img/w/${emoji}.png`;
 
@@ -54,6 +56,8 @@ function getWeather(city) {
                             <h4>${date.toLocaleDateString()}</h4>
                             <img src="${emojiUrl}" alt="weather emoji">
                             <p>${temperature}</p>
+                            <p>Wind Speed: ${windSpeed}</p>
+                            <p>Humidity: ${humidity}</p>
                         `;
 
                         five.appendChild(day);
