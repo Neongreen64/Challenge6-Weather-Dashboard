@@ -38,7 +38,7 @@ function getWeather(city) {
                     state.textContent = data.city.name + " " + data.city.country;
                     temp.textContent = "Temperature: " + data.list[0].main.temp + "°F";
                     wind.textContent = "Wind: " + data.list[0].wind.speed + "mph";
-                    humidity.textContent = "Humidity: " + data.list[0].main.humidity;
+                    humidity.textContent = "Humidity: " + data.list[0].main.humidity + "%";
 
 
                     //Gathers info from the api and then creates div elements for each day of the five-day forecast.
@@ -55,7 +55,7 @@ function getWeather(city) {
                         day.innerHTML = `
                             <h4>${date.toLocaleDateString()}</h4>
                             <img src="${emojiUrl}" alt="weather emoji">
-                            <p>${temperature}</p>
+                            <p>Temperature: ${temperature}</p>
                             <p>Wind Speed: ${windSpeed}</p>
                             <p>Humidity: ${humidity}</p>
                         `;
