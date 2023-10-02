@@ -6,11 +6,11 @@ This javascript application was created to provide the user with a Weather Dashb
 
 <h1>Usage</h1>
 Steps to use my Weather Dashboard:
-<li>Step 1. Either type a city into the text field and click search or click on one of the city buttons</li>
-<li>Step 2. Click the save button and your input will be saved to local storage.</li>
+<li>Step 1. Either type a city into the text field and click search or click on one of the city buttons.</li>
+<li>Step 2. View the weather for the selected city and the upcoming five day forecast.</li>
 
 <h1>Application</h1>
-https://neongreen64.github.io/Challenge5/
+https://neongreen64.github.io/Challenge6-Weather-Dashboard/
 
 <h1>License</h1>
 

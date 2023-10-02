@@ -24,20 +24,24 @@ function getWeather(city) {
             fetch(fiveDayUrl)
                 .then((response) => response.json())
                 .then((data) => {
-                    // Update DOM elements (make sure these elements exist in your HTML).
+                   //Declare variables state,temp,wind,humidty,five
                     var state = document.getElementById("state");
                     var temp = document.getElementById("temp");
                     var wind = document.getElementById("wind");
                     var humidity = document.getElementById("humidity");
                     var five = document.querySelector(".five-day");
 
+                    //Clears any text in five.
                     five.innerHTML = "";
 
+                    //Set the text content of the corresponding html elements.
                     state.textContent = data.city.name + " " + data.city.country;
                     temp.textContent = "Temperature: " + data.list[0].main.temp + "°F";
                     wind.textContent = "Wind: " + data.list[0].wind.speed + "mph";
                     humidity.textContent = "Humidity: " + data.list[0].main.humidity;
 
+
+                    //Gathers info from the api and then creates div elements for each day of the five-day forecast.
                     for (var x = 0; x < 5; x++) {
                         var date = new Date(data.list[x].dt * 1000);
                         var temperature = data.list[x].main.temp + "°F";
@@ -63,6 +67,8 @@ function getWeather(city) {
             console.error("error fetching geocoding info :(");
         });
 }
+
+//Declares the variable searchBtn and adds a click event listener to searchBtn.
 var searchBtn = document.getElementById("search");
 
 searchBtn.addEventListener("click", () => {
@@ -72,6 +78,7 @@ searchBtn.addEventListener("click", () => {
     }
 });
 
+//Declares the variable citybtn and adds a click event listener to citybtn.
 var citybtn = document.querySelectorAll(".citybtn");
 
 citybtn.forEach((button) => {
